@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #fbf8f3;
+  --surface: #ffffff;
+  --ink: #232739;
+  --mute: #5d6175;
+  --line: #e6e0d6;
+  --code: #1d2033;
+  --codeink: #e8e9f2;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #151726;
+    --surface: #1e2136;
+    --ink: #f1eef6;
+    --mute: #a5a8bd;
+    --line: #2d3150;
+    --code: #101223;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-mute: var(--mute);
+  --color-line: var(--line);
+  --color-code: var(--code);
+  --color-codeink: var(--codeink);
+  --color-navy: #232739;
+  --color-plum: #9a62b8;
+  --color-rose: #e0789c;
+  --color-peach: #f4b48e;
+  --color-butter: #f3dc8e;
+  --color-sage: #d3e3d0;
+
+  --color-ed-bg: var(--ed-b);
+  --color-ed-panel: var(--ed-p);
+  --color-ed-line: var(--ed-l);
+  --color-ed-text: var(--ed-t);
+  --color-ed-mute: var(--ed-m);
+  --color-ed-accent: var(--ed-g);
+
+  --font-sans: var(--font-bricolage), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+@keyframes blink {
+  50% { opacity: 0.35; }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.6;
+}
+:focus-visible {
+  outline: 3px solid var(--color-plum);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Brand gradient: purple, rose, peach, butter (+ sage accent) */
+.brand-gradient {
+  background:
+    radial-gradient(60% 70% at 0% 90%, var(--color-plum), transparent 70%),
+    radial-gradient(55% 60% at 12% 20%, var(--color-rose), transparent 70%),
+    radial-gradient(50% 60% at 55% 40%, var(--color-peach), transparent 70%),
+    radial-gradient(50% 70% at 100% 0%, var(--color-sage), transparent 70%),
+    var(--color-butter);
+}
+.brand-gradient-band {
+  background:
+    radial-gradient(60% 90% at 0% 100%, var(--color-plum), transparent 70%),
+    radial-gradient(60% 90% at 100% 0%, var(--color-sage), transparent 70%),
+    radial-gradient(50% 80% at 50% 50%, var(--color-peach), transparent 75%),
+    var(--color-butter);
+}
+
+/* Editor screen palette ("Abyss" dark / light) */
+.editor-root {
+  --ed-b: #030d0f;
+  --ed-p: #071619;
+  --ed-l: #12292b;
+  --ed-t: #d7efe6;
+  --ed-m: #5f7f7a;
+  --ed-g: #62e0a8;
+}
+.editor-root[data-theme="light"] {
+  --ed-b: #f4f7f5;
+  --ed-p: #ffffff;
+  --ed-l: #d9e4df;
+  --ed-t: #14302a;
+  --ed-m: #6b857e;
+  --ed-g: #1fa774;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

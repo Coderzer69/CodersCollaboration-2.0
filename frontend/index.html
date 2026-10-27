@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CodersCollaboration – Code together, live</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav><div class="wrap"><a class="logo" href="#">CodersCollaboration</a><a class="btn ghost" href="https://coderscollaboration.onrender.com/">Open editor</a></div></nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Code together, live.</h1>
+    <p class="lead">Open an editor, send the link, and edit the same file at the same time. No setup, no screen sharing.</p>
+    <div class="cta"><a class="btn" href="https://coderscollaboration.onrender.com/">Start a session</a><a class="btn ghost" href="#how">See how it works</a></div>
+    <div class="editor" id="ed" aria-label="Two people typing in the same editor">
+      <div class="bar"><i></i><i></i><i></i><span><em class="pill a">aman</em><em class="pill o">ornella</em></span></div>
+      <div class="code" id="code" aria-hidden="true"></div>
+    </div>
+  </div>
+  <div class="fly a" id="fa"><svg viewBox="0 0 24 24"><path d="M3 2l17 8-7 2-3 7z" fill="#232739" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg><span class="tag">aman</span></div>
+  <div class="fly o" id="fo"><svg viewBox="0 0 24 24"><path d="M3 2l17 8-7 2-3 7z" fill="#fff" stroke="#232739" stroke-width="1.5" stroke-linejoin="round"/></svg><span class="tag">ornella</span></div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>One editor, three ways to use it.</h2>
+    <p class="sub">Whenever two people need to look at the same code, send a link instead of a screenshot.</p>
+    <div class="rows">
+      <div><h3>Pair program</h3><p>Write, debug, and refactor side by side. Every keystroke shows up for everyone, with each person’s cursor labeled by name.</p></div>
+      <div><h3>Run interviews</h3><p>Set a task and watch the candidate think in real time, instead of squinting at a whiteboard or a paused video call.</p></div>
+      <div><h3>Teach code</h3><p>Show students the fix as you type it, and let them type back in the same file.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="padding-top:0">
+  <div class="wrap">
+    <h2>Up and running in three steps.</h2>
+    <p class="sub">There is nothing to install.</p>
+    <ol class="steps">
+      <li><h3>Open an editor</h3><p>Click Start a session and a fresh editor opens.</p></li>
+      <li><h3>Share the link</h3><p>Copy the URL and send it to anyone who should join.</p></li>
+      <li><h3>Code together</h3><p>Everyone edits at once and sees each other’s cursors.</p></li>
+    </ol>
+  </div>
+</section>
+
+<div class="band">
+  <h2>Your next pairing session is one click away.</h2>
+  <a class="btn" href="https://coderscollaboration.onrender.com/">Start a session</a>
+</div>
+<footer><div class="wrap"><span>© 2026 CodersCollaboration</span><span>Built for developers who work better together.</span></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="js/landing.js"></script>
+<!-- ===== EDITOR VIEW (UI only – wire BACKEND HOOKs in the script below) ===== -->
+<div id="ov" aria-live="polite"><div><div class="ovt">Creating your room</div><div class="ovid" id="ovid"></div><div class="ovbar"><i id="ovb"></i></div></div><span class="ovtag a" id="t1">aman</span><span class="ovtag o" id="t2">ornella</span></div>
+<div id="app">
+  <div id="top">
+    <button class="lg" id="home" title="Back to home">{<b>Coders</b>Collab}</button>
+    <button class="room" id="room" title="Copy room link"><span id="rid"></span><span id="cp">⧉</span></button>
+    <div id="tabs" role="toolbar" aria-label="Panes"></div>
+    <span class="av" title="You">YOU</span>
+    <button class="act" id="theme" aria-label="Toggle theme">◐</button>
+    <button class="act" id="exp">⭳ Export</button>
+    <button class="act run" id="run">▷ Run</button>
+  </div>
+  <div id="main"></div>
+  <div id="sb"><span><em>●</em> <span id="sync">synced</span></span><span id="pc"></span><span>Alt + 1–5 toggles panes · Ctrl + Enter runs</span><span>Abyss</span></div>
+</div>
+<script src="js/editor.js"></script>
+</body>
+</html>
